@@ -1,0 +1,321 @@
+$mainColor: #004098;
+
+// ======== content =======
+.page-content,.ka-wrapper,.ka-content {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    // min-height: calc(100vh - 80px - 40px - 300px);
+}
+
+
+// ======== footer =======
+.page-footer {
+    width: 100%;
+    .mainFooter{
+        width: 100%;
+        height: 408px;
+        background-color: #000;
+        .footetContent{
+            min-height: 390px;
+            padding: 20px 0;
+            color: #777;
+            position: relative;
+            font-size: 12px;
+            font-weight: 300;
+            .top{
+                .companyName{
+                    padding: 22px 0;
+                    font-size: 14px;
+                    line-height: 14px;
+                    font-weight: 500;
+                    color: #fff;
+                    border-bottom: 1px solid #2F2F2F;
+                }
+                .detailType{
+                    margin-top: 40px;
+                    display: flex;
+                    justify-content: space-between;
+                    .typeList{
+                        display: flex;
+                        // max-width: 700px;
+                        .itemBox{
+                            max-width: 350px;
+                            margin-right: 20px;
+                            h6{
+                                font-size: 14px;
+                                line-height: 14px;
+                                font-weight: 500;
+                                color: #fff;
+                                margin-bottom: 34px;
+                            }
+                            span{
+                                display: inline-block;
+                                width: max-content;
+                                min-width: 66px;
+                                margin-bottom: 20px;
+                                font-size: 12px;
+                                font-weight: 400;
+                                color: #aaa;
+                                &:hover{
+                                    color: #fff;
+                                    font-weight: 500;
+                                    cursor: pointer;
+                                    text-decoration: underline;
+                                }
+                            }
+                        }
+                    }
+                    .telTextCode{
+                        width: 263px;
+                        text-align: right;
+                        color: #aaa;
+                        font-weight: 300;
+                        font-size: 12px;
+                        .telText{
+                            font-size: 14px;
+                            font-weight: 500;
+                            width: max-content;
+                            .tel{
+                                color: #fff;
+                                font-weight: 500;
+                            }
+                        }
+                        .appBox{
+                            margin-bottom: 38px;
+                            color: #aaa;
+                            font-size: 12px;
+                            margin-top: 34px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            text-align: center;
+                            span{
+                                padding-right: 21px;
+                                
+                            }
+                            .itemCode{
+                                // padding: 0 20px;
+                                img{
+                                    width: 100px;
+                                    height: 100px;
+                                }
+                                p{
+                                    font-size: 12px;
+                                    font-weight: 400;
+                                    color: #aaa;
+                                    margin-top: 7px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .bottom{
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                padding: 20px 0;
+                font-size: 12px;
+                font-weight: 400;
+                color: #aaa;
+                border-top: 1px solid #2F2F2F;
+                .msg{
+                    display: flex;
+                    justify-content: space-between;
+                    span{
+                        &::after{
+                            content: ' | ';
+                        }
+                        &:last-child{
+                            &::after{
+                                content: none
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// 登录，注册，修改密码弹窗样式
+.loginRegisterModalStyle,
+.changePasswordModalContent{
+    .commonBtn{
+        color: #fff;
+        font-size: 16px;
+    }
+    .ant-input,
+    .ant-input-affix-wrapper{
+        border: none;
+        border-bottom: 1px solid #d9d9d9;
+    }
+
+    // .ant-form-item-explain-error{
+    //     color: #f60;
+    // }
+
+    .ant-input-affix-wrapper-status-error:not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper, .ant-input-affix-wrapper-status-error:not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper:hover{
+        border-color: #e8e8e8;
+    }
+
+    .ant-input,
+    .ant-input-affix-wrapper{
+        padding: 4px 2px;
+    }
+    .ant-tabs-tab-active{
+        font-size: 18px;
+    }
+    .ant-btn-primary:hover, .ant-btn-primary:focus{
+        background-color: $mainColor;
+        border: 1px solid $mainColor;
+        color: #fff !important;
+    }
+    .ant-btn-primary[disabled], .ant-btn-primary[disabled]:hover, .ant-btn-primary[disabled]:focus, .ant-btn-primary[disabled]:active{
+        color: #999 !important;
+    }
+    .ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover{
+        border-color: $mainColor;
+    }
+    .ant-btn-link{
+        color: $mainColor;
+    }
+    .ant-btn-link:hover, .ant-btn-link:focus{
+        color: $mainColor;
+    }
+    .ant-input-affix-wrapper:focus, .ant-input-affix-wrapper-focused{
+        border-color: $mainColor;
+        box-shadow: none;
+    }
+    
+    .modalTabs{
+        display: flex;
+        // border: 1px solid red;
+        padding: 20px 0;
+        .itemTab{
+            color: #ccc;
+            font-size: 14px;
+            line-height: 14px;
+            font-weight: 500;
+            margin-right: 40px;
+            cursor: pointer;
+            &.active{
+                color: #000;
+                font-size: 18px;
+            }
+        }
+        .line{
+            width: 23px;
+            margin-top: 10px;
+            border-bottom: 2px solid #000;
+        }
+    }
+
+    .inputContent{
+        margin-top: 60px;
+        .ant-form-item{
+            margin-bottom: 40px;
+        }
+        .psdBox{
+            .ant-form-item{
+                margin-bottom: 10px;
+            }
+        }
+        .forgetPsd{
+            float: right;
+            font-size: 12px;
+            color: $mainColor;
+            cursor: pointer;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+    .agreeCheckbox{
+        margin-top: 80px;
+        font-size: 12px;
+        margin-bottom: 10px;
+        .agreement{
+            color: $mainColor;
+            cursor: pointer;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+    .ant-form label{
+        font-size: 12px;
+    }
+
+    
+    .bottomText{
+        margin-top: 20px;
+        text-align: center;
+        font-size: 12px;
+        .registerNow{
+            color: $mainColor;
+            cursor: pointer;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+
+
+// 滚动条样式 window 下才会加 edited_scrollbar
+// /* 定义滚动条样式 */
+.edited_scrollbar::-webkit-scrollbar {
+	width: 6px;
+	height: 6px;
+}
+  
+/*定义滚动条轨道 内阴影+圆角*/
+.edited_scrollbar::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 0px rgba(240, 240, 240, 0.5);
+	border-radius: 10px;
+	background-color: rgba(50, 50, 50, .1);
+}
+  
+/*定义滑块 内阴影+圆角*/
+.edited_scrollbar::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	box-shadow: inset 0 0 0px rgba(240, 240, 240, 0.5);
+	background-color: rgba(50, 50, 50, .3);
+	background-color: #777;
+}
+
+// 全局滚动样式 
+.edited_scrollbar{ // (已经统一判断处理，window 下body 才会有 edited_scrollbar 样式)
+    .g-scrollbar{ // g-scrollbar 加到需要改变滚动条样式的组件上即可
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track{
+            background-color: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: transparent;
+        }
+
+        :hover::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        :hover::-webkit-scrollbar-track{
+            box-shadow: inset 0 0 0px rgba(240, 240, 240, 0.5);
+            border-radius: 10px;
+            background-color: rgba(50, 50, 50, .1);
+        }
+        :hover::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            box-shadow: inset 0 0 0px rgba(240, 240, 240, 0.5);
+            background-color: #999;
+        }
+    }
+}

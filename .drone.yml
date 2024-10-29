@@ -1,0 +1,91 @@
+workspace:
+  base: /root/drone/deploy
+  path: icsp-pc-web
+pipeline:
+  # -------开发环境构建--------
+  build_dev:
+    image: hub-devops.cgws.com/plugins/node:16.14.2
+    pull: true
+    commands:
+      - yarn install
+      - CI="false" yarn run build
+    when:
+      event: [push]
+      branch: [develop, feature/*]
+
+  build_push_dev:
+    image: plugins/docker
+    registry: hub-devops.cgws.com
+    pull: true
+    repo: hub-devops.cgws.com/fintech-server/icsp-pc-web
+    secrets: [docker_username, docker_password]
+    insecure: true
+    dockerfile: ./Dockerfile
+    debug: true
+    tags: ${DRONE_COMMIT_SHA:0:10}
+    when:
+      event: [push]
+      branch: [develop, feature/*]
+
+  deploy_dev:
+    image: hub-devops.cgws.com/devops/drone-k8s-deploy:jgyw-cluster
+    pull: true
+    environment:
+      - K8S_NAMESPACE=icsp-dev
+      - REPO=hub-devops.cgws.com/fintech-server/icsp-pc-web
+      - DEPLOYMENTS=icsp-pc-web
+      - CONTAINER=icsp-pc-web
+      - TAG=${DRONE_COMMIT_SHA:0:10}
+      - DEBUG=true
+    when:
+      event: [push]
+      branch: [develop, feature/*]
+
+  # --------测试环境构建----------
+  build_release:
+    image: hub-devops.cgws.com/plugins/node:16.14.2
+    pull: true
+    commands:
+      - yarn install
+      - CI="false" yarn run build:stage
+    when:
+      event: [push]
+      branch: [release/*]
+
+  build_push_release:
+    image: plugins/docker
+    registry: hub-devops.cgws.com
+    pull: true
+    repo: hub-devops.cgws.com/fintech-server/icsp-pc-web
+    secrets: [docker_username, docker_password]
+    insecure: true
+    dockerfile: ./Dockerfile
+    tags:
+      - ${DRONE_BRANCH/\//-}
+    when:
+      event: [push]
+      branch: [release/*]
+
+  # ---------生产环境构建------------
+  build_production:
+    image: hub-devops.cgws.com/plugins/node:16.14.2
+    pull: true
+    commands:
+      - yarn install
+      - CI="false" yarn run build:prod
+    when:
+      event: [tag]
+
+  build_push_production:
+    image: plugins/docker
+    registry: hub-devops.cgws.com
+    pull: true
+    repo: hub-devops.cgws.com/fintech-server/icsp-pc-web
+    secrets: [docker_username, docker_password]
+    insecure: true
+    dockerfile: ./Dockerfile
+    tags:
+      - ${DRONE_TAG}
+    when:
+      event: [tag]
+      

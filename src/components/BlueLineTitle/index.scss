@@ -1,0 +1,85 @@
+.blue-line-title {
+  position: relative;
+  margin-bottom: 15px;
+  padding-bottom: 12px;
+  display: flex;
+  flex-flow: nowrap;
+  justify-content: space-between;
+  align-items: end;
+  border-bottom: 1px solid #EBEBEB;
+
+  .titleBox {
+      font-size: 16px;
+      font-weight: 500;
+      // position: relative;
+      width: max-content;
+      min-width: max-content;
+      color: #000;
+      display: flex;
+      align-items: center;
+      // &::before{
+      //     content: ' ';
+      //     flex: 1;
+      //     width: 4px;
+      //     height: 14px;
+      //     background: #004098;
+      //     position: absolute;
+      //     left: 0;
+      //     top: 42%;
+      //     margin-top: -6px;
+      // }
+      .iconLine{
+        width: 12px;
+        height: 13px;
+        margin-right: 5px;
+      }
+      .lineTit{
+        max-width: max-content;
+        color: #004098;
+        line-height: 20px;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 0;
+      }
+      .btnBox{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 20px;
+        min-width: max-content;
+        height: 30px;
+        img{
+          width: 12px;
+          height: 12px;
+          margin-right: 5px;
+        }
+      }
+      
+      .tipText{
+        margin-left: 15px;
+        font-size: 12px;
+        font-weight: 400;
+        padding: 9px 20px;
+        color: #666;
+        background-color: #FFF9EF;
+        display: flex;
+        align-items: center;
+        border-radius: 8px;
+        .warnIcon{
+          width: 12px;
+          height: 12px;
+          margin-right: 5px;
+        }
+      }
+      .children{
+        margin-left: 14px;
+        font-size: 12px;
+        font-weight: normal;
+      }
+  }
+  
+  .rightContent{
+
+  }
+
+}
