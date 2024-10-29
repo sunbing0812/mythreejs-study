@@ -28,7 +28,8 @@ const test = () => {
         }}
     >
         < OrbitControls />
-        
+
+        <ambientLight intensity={5} />
         <fog attach="fog" args={['white', 50, 190]} />
         <pointLight distance={100} intensity={4} color="white" />
         <Particles count={isMobile ? 1000 : 1000} mouse={mouse} />
