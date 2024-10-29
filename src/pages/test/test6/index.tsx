@@ -59,6 +59,7 @@ const test = () => {
     <web.h1 style={{ opacity: props.open.to([0, 1], [1, 0]), transform: props.open.to((o) => `translate3d(-50%,${o * 50 - 100}px,0)`) }}>click</web.h1>
     <Canvas dpr={[1, 2]} camera={{ position: [0, 0, -30], fov: 35 }}>
       <three.pointLight position={[10, 10, 10]} intensity={1.5} color={'#d25578'}/>
+      <ambientLight intensity={3} />
       <Suspense fallback={null}>
         <group rotation={[0, Math.PI, 0]} onClick={(e) => (e.stopPropagation(), setOpen(!open))}>
           <Model open={open} hinge={props.open.to([0, 1], [1.575, -0.425])} />
